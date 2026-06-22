@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bk7thxg74vnpu"]
+
+[ext_resource type="Script" uid="uid://caajxa4wr1iwl" path="res://src/entities/playar/character_body_3d.gd" id="1_vnryg"]
+[ext_resource type="PackedScene" uid="uid://dxmg2rmfsgr3c" path="res://src/entities/playar/pivohorizontal/pivohorizontal.tscn" id="2_hbbnl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbbnl"]
+size = Vector3(1, 4.847168, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rxscx"]
+
+[node name="Playar" type="Node3D" unique_id=1583252551]
+
+[node name="Playar" type="CharacterBody3D" parent="." unique_id=1691498039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0708117, 0)
+script = ExtResource("1_vnryg")
+
+[node name="Pivohorizontal" parent="Playar" unique_id=445126674 instance=ExtResource("2_hbbnl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0708117, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Playar/Pivohorizontal" unique_id=944522054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1352742, -0.024024844)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Playar" unique_id=194772345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01977539, 0)
+shape = SubResource("BoxShape3D_hbbnl")
+
+[node name="Face" type="MeshInstance3D" parent="Playar" unique_id=285770994]
+transform = Transform3D(1, 0, 0, 0, 4.891104, -4.440892e-16, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_rxscx")
